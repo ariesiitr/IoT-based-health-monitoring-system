@@ -1,0 +1,298 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Firebase practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"> -->
+
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+
+    <style>
+        .body {
+            word-wrap: break-word;
+            box-sizing: border-box;
+            background-color: rgb(247, 247, 229);
+        }
+        
+        .head {
+            font-size: 70px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 30px;
+            border: 4px solid rgb(0, 140, 255);
+            border-radius: 10px;
+            color: rgba(8, 101, 187, 0.822);
+        }
+        
+        .btn-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            /* width: 30%;
+    margin-left: 1000px; */
+        }
+        
+        #button,
+        #button1 {
+            text-align: center;
+            margin-top: 40px;
+            margin: 40px 60px 0px 60px;
+        }
+        
+        #ctrl,
+        #ctrl1 {
+            font-size: 30px;
+            padding: 10px;
+            background-color: rgb(243, 73, 73);
+            border: 2px solid rgb(243, 73, 73);
+            color: rgb(241, 235, 224);
+            border-radius: 4px;
+        }
+        
+        #ctrl:hover {
+            border-color: rgb(247, 106, 106);
+            box-shadow: 0 0 1rem rgb(247, 106, 106);
+        }
+        
+        #ctrl.active {
+            background-color: rgb(6, 218, 6)!important;
+            border: 2px solid rgb(4, 173, 4)!important;
+        }
+        
+        #ctrl.active:hover {
+            border-color: rgb(38, 219, 38);
+            box-shadow: 0 0 1rem rgb(38, 219, 38);
+        }
+        
+        #ctrl1:hover {
+            border-color: rgb(247, 106, 106);
+            box-shadow: 0 0 1rem rgb(247, 106, 106);
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #time {
+            text-align: center;
+            padding: 40px;
+            margin: 5px;
+            font-size: 30px;
+        }
+        
+        .side1 {
+            display: flex;
+            flex-direction: row;
+            margin: 30px 50px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0px;
+        }
+        
+        .side2 {
+            display: flex;
+            flex-direction: row;
+            margin: 50px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0px;
+        }
+        
+        .temp-class {
+            margin: 50px;
+            border: 4px solid rgb(6, 218, 6);
+            width: 30%;
+            color: rgb(122, 8, 94);
+            ;
+        }
+        
+        .pulse-class {
+            margin: 50px;
+            border: 4px solid rgb(6, 218, 6);
+            width: 30%;
+            color: rgb(122, 8, 94);
+        }
+        
+        .stress-class {
+            margin: 50px;
+            border: 4px solid rgb(6, 218, 6);
+            width: 50%;
+            color: rgb(122, 8, 94);
+            ;
+        }
+        
+        .location-class {
+            margin: 50px;
+            border: 4px solid rgb(6, 218, 6);
+            width: 50%;
+            color: rgb(122, 8, 94);
+            ;
+        }
+        
+        .name {
+            font-size: 30px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 10px;
+            font-weight: 500;
+        }
+        
+        .temp-class:hover {
+            transform: scale(1.1);
+            border-color: rgb(38, 219, 38);
+            box-shadow: 0 0 1rem rgb(38, 219, 38);
+        }
+        
+        .pulse-class:hover {
+            transform: scale(1.1);
+            border-color: rgb(38, 219, 38);
+            box-shadow: 0 0 1rem rgb(38, 219, 38);
+        }
+        
+        .stress-class:hover {
+            transform: scale(1.1);
+            border-color: rgb(38, 219, 38);
+            box-shadow: 0 0 1rem rgb(38, 219, 38);
+        }
+        
+        .location-class:hover {
+            transform: scale(1.1);
+            border-color: rgb(38, 219, 38);
+            box-shadow: 0 0 1rem rgb(38, 219, 38);
+        }
+        
+        #temp {
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        #pulrat {
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        #str {
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        #loc {
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        #notify1,
+        #notify2 {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: red;
+            display: none;
+        }
+        
+        @media (max-width: 840px) {
+            .side1,
+            .side2 {
+                flex-direction: column;
+            }
+            .side2 {
+                margin-top: 0px;
+            }
+            .side1 {
+                margin-bottom: 0px;
+            }
+            .temp-class,
+            .stress-class,
+            .location-class,
+            .pulse-class {
+                width: 80%;
+            }
+            .name {
+                font-size: 25px;
+            }
+            .head {
+                font-size: 45px;
+            }
+            .location-class {
+                order: 1;
+            }
+            .stress-class {
+                order: 2;
+            }
+        }
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <!-- <script type="text/javascript" src="{{url_for('static' , filename='app.js')}}"></script>     -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6seJJDrEbqLGaFpW_IBpdvaXJiHKCA3s&callback=myGoogleMap"></script>
+</head>
+
+<body>
+    <div class="head">IOT Based Health Monitoring</div>
+    <div class="btn-box">
+        <div id="button"><button id="ctrl">ON/OFF</button></div>
+        <div id="button1"><button id="ctrl1">SIGN OUT</button></div>
+    </div>
+
+    <div class="contents">
+        <div id="time"></div>
+        <div class="side1">
+            <div class="temp-class" id="temp-notify">
+                <div class="name">TEMPERATURE (°F)</div>
+                <div id="temp"></div>
+                <div id="notify1">Your family/friends have been notified!</div>
+            </div>
+            <div class="pulse-class" id="pul-notify">
+                <div class="name">PULSE RATE (BPM)</div>
+                <div id="pulrat"></div>
+                <div id="notify2">Your family/friends have been notified!</div>
+            </div>
+        </div>
+        <div class="side2">
+            <div class="location-class">
+                <div class="name">LOCATION</div>
+                <div id="loc" style="height: 400px; width: 100; overflow: scroll;"></div>
+            </div>
+            <script type="text/javascript" src="{{url_for('static' , filename='app.js')}}"></script>
+
+            <div class="stress-class">
+                <div class="name">STRESS</div>
+                <div id="str"></div>
+                <img id="bg" src="{{ url_for('predict') }}" alt="Loading..." style="width: -webkit-fill-available;" />
+            </div>
+        </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script type="text/javascript" src="{{url_for('static' , filename='app.js')}}"></script> -->
+    <!-- <script type="text/javascript" src="{{url_for('static' , filename='app.js')}}"></script> -->
+    <!-----------------location--------------->
+    <script type="text/javascript.">
+        console.log(document.getElementById('bg').src);
+        // document.getElementById("bg").src = "{{ url_for('predict') }}";
+    </script>
+
+</body>
+
+</html>

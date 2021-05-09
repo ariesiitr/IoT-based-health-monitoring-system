@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        #signout_btn {
+            display: none;
+        }
+        
+        #signout_btn.visible {
+            display: block;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .body {
+            word-wrap: break-word;
+            box-sizing: border-box;
+            background-color: rgb(247, 247, 229);
+        }
+        
+        .head {
+            font-size: 70px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 30px;
+            border: 4px solid rgb(0, 140, 255);
+            border-radius: 10px;
+            color: rgba(8, 101, 187, 0.822);
+        }
+        
+        .box {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sub-box1 {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            margin: 30px;
+        }
+        
+        input {
+            border: 3px solid rgb(0, 140, 255);
+            border-radius: 5px;
+            height: 30px;
+            padding: 5px;
+            margin: 10px;
+        }
+        
+        button {
+            margin: 10px;
+            height: 30px;
+            padding: 5px;
+            width: 100%;
+            background: rgb(146, 202, 248);
+            border: 3px solid rgb(0, 140, 255);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">IOT Based Health Monitoring</div>
+    <div class="outer-box">
+
+        <div class="box">
+            <div class="sub-box1">
+                <label for="email"></label>
+                <input type="text" id="email" placeholder="Email..">
+                <label for="pwd"></label>
+                <input type="password" id="pwd" placeholder="Password..">
+            </div>
+            <div class="sub-box2">
+                <button id="signin_btn">Sign In</button>
+                <button id="signup_btn">Sign Up</button>
+                <button id="signout_btn">Sign Out</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script type="text/javascript" src="{{url_for('static' , filename='appAuth.js')}}"></script>
+
+
+</body>
+
+</html>
