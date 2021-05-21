@@ -17,6 +17,7 @@ Recruitment project for 1st yearites
 - Realtime temperature and pulse detection of body
 - Sending live temperature and pulse values to the user through SMS using GSM module
 <br>
+
 ><img src="./images/notification.png" style="height:250px">
 <br>
 
@@ -30,8 +31,8 @@ Recruitment project for 1st yearites
 
 ## Conclusions
 
--Arduino print the temperature and pulse value to serial monitor and these values wil send to firebase using python
--When user sends “on” sms to gsm module,instantly he will get the live temperature  and pulse of body through SMS 
+- Arduino print the temperature and pulse value to serial monitor and these values wil send to firebase using python
+- When user sends “on” sms to gsm module,instantly he will get the live temperature  and pulse of body through SMS 
 <br><br>
 
 ## Arduino-Python Serial Communication,Live location and realtime graph plotting
@@ -41,6 +42,7 @@ Recruitment project for 1st yearites
 - Realtime graph plotting of sensor values using matplotlib and drawnow library
 - Live location of user using web scraping bot.( using selenium library and chrome driver)
 <br>
+
 ><img src="./images/graph.png" style="height:250px">
 <br><br>
 
@@ -100,6 +102,7 @@ $ pip install drawnow
 - Identifying Eyebrows and lip movement 
 - Real-time stress calculation
 <br><br>
+
 ><img src="./images/stress_detector.png" style="height:200px;">
 <br><br>
 
@@ -109,13 +112,11 @@ $ pip install drawnow
 $ git clone https://github.com/ariesiitr/IoT-based-health-monitoring-system
 $ cd web-app
 $ pip3 install -r reqqs2.txt
-
 ```
 > Now go the app.py file and change the template folder path according to your system.
 
 ```
 $ python3 app.py runserver
-
 ```
 >copy the local host url, add **/login** at the end and run it on a browser.
 <br><br>
