@@ -1,12 +1,5 @@
-<div align="center"><a href="https://aries-stc.herokuapp.com/" target="_blank"><img src="./images/aries_iitr.png" style="width:150px;height:150px"></a>
-<a href="https://www.iitr.ac.in/" target="_blank"><img src="./images/iitr.jpeg" style="width:150px;height:150px"></a>
-</div>
-
 # IoT-based-health-monitoring-system
 Recruitment project for 1st yearites
-
-
-
 
 ## ARDUINO IDE
 
